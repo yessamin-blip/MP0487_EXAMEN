@@ -1,0 +1,103 @@
+/* ═══════════════════════════════════════════════════
+   SPARK · eliminar.css
+   Estilos del modal de confirmación y página
+═══════════════════════════════════════════════════ */
+
+.delete-warning {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* ── Modal overlay ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 13, 11, .6);
+  backdrop-filter: blur(4px);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.active { display: flex; }
+
+/* ── Modal box ── */
+.modal-box {
+  background: #F2EDE4;
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 420px;
+  width: calc(100% - 40px);
+  box-shadow: 0 24px 64px rgba(0,0,0,.25);
+  animation: modalIn .3s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: #1A1714;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.modal-desc {
+  font-size: 14px;
+  color: #9A9186;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── Modal botones ── */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.modal-cancel {
+  padding: 11px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9A9186;
+  border: 1.5px solid rgba(0,0,0,.12);
+  background: transparent;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: 'Poppins', sans-serif;
+}
+.modal-cancel:hover { border-color: #1A1714; color: #1A1714; }
+
+.modal-confirm {
+  padding: 11px 22px;
+  border-radius: 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #c44a4a;
+  border: none;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.modal-confirm:hover { background: #a83030; transform: translateY(-1px); }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .modal-box { padding: 24px 20px; }
+  .modal-actions { flex-direction: column-reverse; }
+  .modal-cancel,
+  .modal-confirm { width: 100%; text-align: center; }
+}
