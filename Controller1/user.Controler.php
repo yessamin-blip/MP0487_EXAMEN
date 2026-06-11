@@ -12,6 +12,9 @@ class User_Controler
     {
         $this->model = new UserModel();
     }
+    
+
+    
 
     function register($nombre, $email, $password, $usuario, $ruta = null)
     {
