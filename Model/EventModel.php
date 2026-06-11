@@ -63,9 +63,9 @@ public function getEvents($Id_Evento = null) {
             return "campos_vacios";
         } else {
             try {
-                $sql = "UPDATE Evento SET Nombre_evento = ?, Descripcion = ?, Fecha_evento = ? WHERE Id_Evento = ?";
+                $sql = "UPDATE Evento SET Nombre_evento = ?, Descripcion = ?, Fecha_evento = ?, Ubicacion = ? WHERE Id_Evento = ?";
                 $stmt = $this->conn->prepare($sql);
-                $stmt->execute([$nombre, $descripcion, $fecha_evento, $Id_Evento]);
+                $stmt->execute([$nombre, $descripcion, $fecha_evento, $ubicacion, $Id_Evento]);
                 $rowCount = $stmt->rowCount();
                 if ($rowCount === 0) {
                     return "evento_no_encontrado";
